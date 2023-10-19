@@ -1,0 +1,11 @@
+.dishes-list {
+  width: 80%;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.dishes-list__fallback {
+  color: white;
+  text-align: center;
+}
