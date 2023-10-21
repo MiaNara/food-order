@@ -30,7 +30,7 @@ const CartProvider = ({ children }) => {
 
     const removeFromCart = (id) => {
         const indexInCart = cart.findIndex((item) => item.id === id);
-        if (cart[indexInCart].amount == 1) {
+        if (cart[indexInCart].amount === 1) {
             setCart(cart.filter((item) => item.id !== id));
         } else {
             const newCart = [...cart];

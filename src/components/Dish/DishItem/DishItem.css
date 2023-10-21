@@ -29,8 +29,8 @@
 .dish-amount__form {
   display: flex;
   gap: 0.5rem;
-  align-items: end;
-  justify-content: end;
+  align-items: flex-end;
+  justify-content: flex-end;
   flex: 1;
   padding-right: 1rem;
 }
