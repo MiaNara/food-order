@@ -10,9 +10,21 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import React from "react";
-
+import React, { useContext, useMemo } from "react";
+import "./Header.css";
+import { CartContext } from "../../context/CartContext";
+import CartModal from "../Modal/CartModal";
+import { useState } from "react";
 export default function Header() {
+  const { totalItems } = useContext(CartContext);
+
+  const [open, setOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  const handleOpen = () => {
+    setOpen(true);
+  };
   return (
     <div position="static">
       <AppBar
@@ -69,67 +81,21 @@ export default function Header() {
               display: { xs: "none", md: "flex" },
             }}
           >
-            <link>Home</link>
-            <link>Foods</link>
-            <link>Blogs</link>
-
-            {/* {isAdmin && (
-              <>
-                <LinkStyled
-                  to={"../category"}
-                  style={({ isActive }) => {
-                    return {
-                      borderBottom: isActive
-                        ? "2px solid orange"
-                        : "2px solid white",
-                    };
-                  }}
-                >
-                  Thực đơn
-                </LinkStyled>
-                <LinkStyled
-                  to={"../addCategory"}
-                  style={({ isActive }) => {
-                    return {
-                      borderBottom: isActive
-                        ? "2px solid orange"
-                        : "2px solid white",
-                    };
-                  }}
-                >
-                  Thêm món ăn
-                </LinkStyled>
-                <LinkStyled
-                  to={"../report"}
-                  style={({ isActive }) => {
-                    return {
-                      borderBottom: isActive
-                        ? "2px solid orange"
-                        : "2px solid white",
-                    };
-                  }}
-                >
-                  Thống kê
-                </LinkStyled>
-              </>
-            )} */}
+            <Link>Home</Link>
+            <Link>Foods</Link>
+            <Link>Blogs</Link>
           </Box>
-          <Box sx={{ flexGrow: 0, marginRight: { md: "2rem", xs: "1rem" } }}>
-            <Stack sx={{ color: "grey", flexDirection: "row" }}>
-              {" "}
-              {/* <PersonIcon fontSize="small" sx={{ paddingRight: "5px" }} /> */}
-              Trang Le
-            </Stack>
-          </Box>
-          <Box sx={{ flexGrow: 0, marginRight: { md: "5rem" } }}>
-            <Tooltip>
-              <Button color="info" variant="outlined">
-                Đăng xuất
-              </Button>
-            </Tooltip>
+          <Box sx={{ flexGrow: 0, marginRight: { md: "15rem", xs: "1rem" } }}>
+            <Button onClick={handleOpen}>
+              <div id="shopping-cart">
+                <i class="fa-solid fa-cart-shopping"></i> Cart
+                <span>{totalItems}</span>
+              </div>
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
+      <CartModal handleClose={handleClose} open={open} />
     </div>
   );
 }

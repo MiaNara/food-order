@@ -1,7 +1,20 @@
 import { Button, Card, Grid } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import "./DishItem.css";
+import { CartContext } from "../../context/CartContext";
 export default function DishItem(props) {
+  const [amount, setAmount] = React.useState(1);
+  const { addToCart } = useContext(CartContext);
+  const handleAddToCart = (event) => {
+    event.preventDefault();
+    console.log(event.target.amount.value);
+    const newProduct = {
+      ...props,
+      amount: parseInt(event.target.amount.value),
+    };
+    addToCart(newProduct);
+    setAmount(1);
+  };
   return (
     <li>
       <Card className="dish-item">
@@ -17,12 +30,20 @@ export default function DishItem(props) {
             <div className="dish-item__price">${props.price}</div>
           </Grid>
           <Grid item md={3} xs={12} className="dish-amount__form">
-            <form>
+            <form onSubmit={handleAddToCart}>
               <div>
                 <label htmlFor="amount"> Amount</label>
-                <input id="amount" min={1} defaultValue={1} type="number" />
+                <input
+                  id="amount"
+                  min={1}
+                  value={amount}
+                  type="number"
+                  onChange={(event) => {
+                    setAmount(event.target.value);
+                  }}
+                />
               </div>
-              <Button>+ Add</Button>
+              <Button type="submit">+ Add</Button>
             </form>
           </Grid>
         </Grid>

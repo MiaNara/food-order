@@ -13,6 +13,7 @@ export default function DishesList(props) {
         {props.items.map((dish) => (
           <DishItem
             key={dish.id}
+            id={dish.id}
             name={dish.name}
             price={dish.price}
             description={dish.description}

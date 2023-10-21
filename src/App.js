@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import DishesList from './components/Dish/DishesList';
 import DISHES from './DishData';
-import Layout from './components/layout/Layout';
+import Layout from './components/Layout/Layout';
+import { CartProvider } from './context/CartContext';
+import CartModal from './components/Modal/CartModal';
 function App() {
   return (
     <div className="App">
@@ -20,9 +22,12 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <Layout>
-        <DishesList items={DISHES} />
-      </Layout>
+      <CartProvider>
+        <Layout>
+          <DishesList items={DISHES} />
+        </Layout>
+      </CartProvider>
+
 
     </div>
   );
