@@ -1,0 +1,33 @@
+.modal-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+.modal-item img {
+  width: 90%;
+  height: 7rem;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.modal-item button {
+  font-size: 18px;
+}
+.modal-item input {
+  width: 50px;
+  text-align: center;
+}
+.modal-item p {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 6px 0;
+  height: 25px;
+  margin: 5px 5px;
+}
+.modal-item__amount {
+  justify-content: flex-end;
+  display: flex;
+}

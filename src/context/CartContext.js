@@ -26,12 +26,23 @@ const CartProvider = ({ children }) => {
         setCart(newCart);
     };
 
-    const removeFromCart = (product) => {
-        setCart(cart.filter((item) => item.id !== product.id));
+    const removeFromCart = (id) => {
+        const indexInCart = cart.findIndex((item) => item.id === id);
+        if (cart[indexInCart].amount == 1) {
+            setCart(cart.filter((item) => item.id !== id));
+        } else {
+            const newCart = [...cart];
+            newCart[indexInCart].amount -= 1;
+            setCart(newCart);
+
+        }
     };
+    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.amount, 0).toFixed(2);
+
+
 
     return (
-        <CartContext.Provider value={{ cart, totalItems, addToCart, removeFromCart }}>
+        <CartContext.Provider value={{ cart, setCart, totalItems, addToCart, removeFromCart, totalPrice }}>
             {children}
         </CartContext.Provider>
     );

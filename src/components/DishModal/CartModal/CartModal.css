@@ -1,0 +1,55 @@
+.card-modal {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+.card-modal > p {
+  text-align: center;
+  color: orangered;
+  font-size: 20px;
+}
+.card-modal span {
+  padding-left: 10px;
+}
+.card-modal .dialog-action {
+  display: flex;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  background-color: white;
+}
+.dialog-action button {
+  font-family: "Playpen Sans", cursive;
+  font-weight: 600;
+  color: black;
+}
+.dialog-action button:nth-child(2) {
+  background-color: #ff7b00;
+  color: white;
+}
+.dialog-action button:nth-child(2):disabled {
+  opacity: 0.3;
+}
+.dialog-action button:first-child:hover {
+  background-color: rgb(238, 237, 237);
+}
+
+.dialog-action button:nth-child(2):hover {
+  background-color: orangered;
+  color: white;
+}
+
+.total-price {
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.total-price p {
+  margin: 0;
+}
