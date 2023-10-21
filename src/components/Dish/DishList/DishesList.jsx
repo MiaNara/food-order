@@ -1,5 +1,5 @@
 import React from "react";
-import DishItem from "./DishItem";
+import DishItem from "../DishItem/DishItem";
 import "./DishesList.css";
 import { Card, Container } from "@mui/material";
 export default function DishesList(props) {
@@ -8,7 +8,7 @@ export default function DishesList(props) {
   }
 
   return (
-    <Container>
+    <Container id="main">
       <ul className="dishes-list">
         {props.items.map((dish) => (
           <DishItem

@@ -12,8 +12,8 @@ import {
 } from "@mui/material";
 import React, { useContext, useMemo } from "react";
 import "./Header.css";
-import { CartContext } from "../../context/CartContext";
-import CartModal from "../Modal/CartModal";
+import { CartContext } from "../../../context/CartContext";
+import CartModal from "../../DishModal/CartModal/CartModal";
 import { useState } from "react";
 export default function Header() {
   const { totalItems } = useContext(CartContext);
@@ -29,7 +29,11 @@ export default function Header() {
     <div position="static">
       <AppBar
         maxwidth="lg"
-        sx={{ boxShadow: "none", backgroundColor: "white" }}
+        sx={{
+          boxShadow:
+            "rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px",
+          backgroundColor: "white",
+        }}
       >
         <Toolbar sx={{ marginLeft: { md: "3rem" } }}>
           <Typography
@@ -44,7 +48,6 @@ export default function Header() {
               fontWeight: 500,
               color: "orange",
               letterSpacing: ".3rem",
-              // textTransform: 'uppercase',
               textDecoration: "none",
               fontSize: "1.3rem",
             }}
