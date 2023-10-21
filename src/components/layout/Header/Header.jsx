@@ -1,20 +1,8 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  IconButton,
-  Link,
-  Menu,
-  Stack,
-  Toolbar,
-  Tooltip,
-  Typography,
-} from "@mui/material";
-import React, { useContext, useMemo } from "react";
-import "./Header.css";
+import { AppBar, Box, Button, Link, Toolbar, Typography } from "@mui/material";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import CartModal from "../../DishModal/CartModal/CartModal";
-import { useState } from "react";
+import "./Header.css";
 export default function Header() {
   const { totalItems } = useContext(CartContext);
 
@@ -68,7 +56,6 @@ export default function Header() {
               fontWeight: 500,
               color: "orange",
               letterSpacing: ".3rem",
-              // textTransform: 'capitalize',
               paddingLeft: "5rem",
               textDecoration: "none",
               fontSize: "1.3rem",

@@ -1,7 +1,7 @@
 import React from "react";
 import DishItem from "../DishItem/DishItem";
 import "./DishesList.css";
-import { Card, Container } from "@mui/material";
+import { Container } from "@mui/material";
 export default function DishesList(props) {
   if (props.items.length === 0) {
     return <h2 className="dishes-list__fallback">Found no dishes.</h2>;

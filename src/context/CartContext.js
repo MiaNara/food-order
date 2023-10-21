@@ -6,6 +6,7 @@ const CartContext = createContext();
 const CartProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
     const [totalItems, setTotalItems] = useState(0);
+
     useEffect(() => {
         let total = 0;
         cart.forEach((item) => {
@@ -13,6 +14,7 @@ const CartProvider = ({ children }) => {
         });
         setTotalItems(total);
     }, [cart]);
+
     const addToCart = (product) => {
         let newCart;
         const indexInCart = cart.findIndex((item) => item.id === product.id);
@@ -34,7 +36,6 @@ const CartProvider = ({ children }) => {
             const newCart = [...cart];
             newCart[indexInCart].amount -= 1;
             setCart(newCart);
-
         }
     };
     const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.amount, 0).toFixed(2);
