@@ -1,9 +1,8 @@
 import './App.css';
 import DishesList from './components/Dish/DishList/DishesList';
 import DISHES from './DishData';
-import Layout from './components/Layout/Layout';
 import { CartProvider } from './context/CartContext';
-
+import Layout from './components/Layout/Layout';
 function App() {
   return (
     <div className="App">

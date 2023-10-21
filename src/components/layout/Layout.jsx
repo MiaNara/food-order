@@ -1,12 +1,11 @@
 import React from "react";
 import Header from "./Header/Header";
-const Layout = ({ children }) => {
+
+export default function Layout({ children }) {
   return (
     <>
       <Header />
       {children}
     </>
   );
-};
-
-export default Layout;
+}
